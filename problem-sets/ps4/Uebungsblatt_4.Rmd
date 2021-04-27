@@ -1,7 +1,7 @@
 
 ```{r 'check_ps', include=FALSE}
 
-user.name = 'ENTER A USER NAME HERE'
+user.name = 'Jana Russ'
 ```
 
 # RTutor Uebungsblatt 4 - Projektkurs
@@ -39,6 +39,8 @@ Bitte installieren Sie das Paket `stargazer`, falls Sie das bis jetzt noch nicht
 
 ```{r "1_1"}
 library(stargazer)
+library(readr)
+library(wooldridge)
 ```
 
 `stargazer` ermoeglicht eine ansprechende Darstellung von Tabellen, insbesondere in HTMP und Latex, was Sie spaeter fuer die Projekte benoetigen werden.
@@ -46,7 +48,7 @@ library(stargazer)
 a) Im ersten Schritt laden wir die zur Verfuegung stehenden Daten. Laden Sie die unter Daten bereitgestellten `EU_Makro.csv` Daten in R.
 
 ```{r "1_a"}
-____ <- read_csv("____")
+eu_makro <- read_csv("./data/EU_Makro.csv")
 
 # enter your code here ...
 
@@ -75,14 +77,8 @@ Auf den ersten Blick ist zu erkennen, das ein positiver Zusammenhang zwischen de
 b) Eine beliebte Methode einen Zusammenhang in einer einzelnen Zahl zusammenzufassen ist eine einfache lineare Regression mittels der Methode der kleinsten Quadrate (engl. Ordinary Least Squares OLS). Regressieren Sie in R `unempl` auf `debt_share_country_pro`. Speichern Sie das Ergebnis in der Variablen `reg1` und zeigen Sie dann eine Zusammenfassung von `reg1`. Bitte kommentieren Sie hierfuer den Code aus und ergaenzen Sie diesen: 
 
 ```{r "1_b"}
-reg1 <- lm(___~debt_share_country_pro, data=___)
-summary(___)
-
-# enter your code here ...
-
-
-# enter your code here ...
-
+reg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)
+summary(reg1)
 ```
 
 Die Geschaetzten Koeffizienten `(Intercept)` und  `debt_share_country_pro` korrespondieren zu den Schaetzern von `beta0` und `beta1` in der Regressionsgleichung
@@ -124,8 +120,6 @@ f) Fuegen Sie der Grafik `g1` in "blue" eine Linie mit der in `reg1` berechneten
 
 ```{r "1_f"}
 g2 <- g1 + geom_abline(intercept=b0,slope=b1 ,colour="blue")
-
-# enter your code here ...
 
 g2
 ```
@@ -447,7 +441,7 @@ Geben Sie hier die Ziffer Ihrer Antwort ein und fuehren Sie die Codezeile aus:
 
 ```{r "3_d"}
 
-3
+4
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
