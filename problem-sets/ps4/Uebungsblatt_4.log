@@ -1,0 +1,148 @@
+{"type":["init_ps"],"time":["2021-04-27 13:32:18"],"user":["Jana Russ"],"umph":[1619523138.183],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:32:18"],"user":["Jana Russ"],"umph":[1619523138.2184],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)\nlibrary(readr)\nlibrary(wooldridge)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:32:18"],"user":["Jana Russ"],"umph":[1619523138.2851],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:32:18"],"user":["Jana Russ"],"umph":[1619523138.5234],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:32:18"],"user":["Jana Russ"],"umph":[1619523138.5544],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[1],"code":["reg1 <- lm(.PH_._~debt_share_country_pro, data=.PH_._)\nsummary(.PH_._)\n\n# enter your code here ...\n\n\n# enter your code here ...\n"],"message":["\nYou have not made a correct assignment to reg1 in chunk 1_b."]}
+,
+{"type":["check_ps"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.6606],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.6936],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.7145],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\n6.895\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.7484],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\ncoef(reg1)\n\nb0 <- coef(reg1)[1]\n\nb1 <- coef(reg1)[2]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.918],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept=b0,slope=b1 ,colour=\"blue\")\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:20"],"user":["Jana Russ"],"umph":[1619523200.9455],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\ncor(eu_makro$unempl, y = eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.1894],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.2143],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.2382],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.2612],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.2861],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.8978],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:21"],"user":["Jana Russ"],"umph":[1619523201.9446],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\nhist(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:22"],"user":["Jana Russ"],"umph":[1619523202.1532],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:22"],"user":["Jana Russ"],"umph":[1619523202.1709],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\nsd(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:22"],"user":["Jana Russ"],"umph":[1619523202.1999],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:22"],"user":["Jana Russ"],"umph":[1619523202.2288],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\nconfint(reg1, level = 0.95)\n\n\nconfint(reg1, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.2914],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.3279],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.4938],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.5147],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["dat <- filter(eu_makro, country %in% c(\"Germany\",\"France\",\"Netherlands\"))\ndat$country %in% c(\"Germany\",\"France\",\"Netherlands\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.5526],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.5755],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.5975],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.6434],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\nc(3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.8418],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.8634],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:33:23"],"user":["Jana Russ"],"umph":[1619523203.8853],"ok":[false],"chunk":[30],"ex":[3],"e.ind":[1],"code":["\n3\n"],"message":["\nYou have not yet entered all correct commands in chunk 3_d."]}
+,
+{"type":["init_ps"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.6307],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.6527],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)\nlibrary(readr)\nlibrary(wooldridge)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.7464],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.9108],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.9408],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl~debt_share_country_pro, data=eu_makro)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:58"],"user":["Jana Russ"],"umph":[1619523298.9817],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\n6.895\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.0235],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\ncoef(reg1)\n\nb0 <- coef(reg1)[1]\n\nb1 <- coef(reg1)[2]\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.2958],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept=b0,slope=b1 ,colour=\"blue\")\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.3128],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\ncor(eu_makro$unempl, y = eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.3936],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.4075],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.4265],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.4395],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:34:59"],"user":["Jana Russ"],"umph":[1619523299.4512],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["\n2\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.201],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.235],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\nhist(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.4024],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.4156],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\nsd(sim.beta1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.4355],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.463],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\nconfint(reg1, level = 0.95)\n\n\nconfint(reg1, level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.6779],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.7117],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.7416],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.7585],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["dat <- filter(eu_makro, country %in% c(\"Germany\",\"France\",\"Netherlands\"))\ndat$country %in% c(\"Germany\",\"France\",\"Netherlands\")\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.7785],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\n\nsummary(reg1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.7911],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.8041],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:00"],"user":["Jana Russ"],"umph":[1619523300.826],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\nc(3)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:01"],"user":["Jana Russ"],"umph":[1619523301.0758],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:01"],"user":["Jana Russ"],"umph":[1619523301.0898],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n3\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:35:01"],"user":["Jana Russ"],"umph":[1619523301.1027],"ok":[false],"chunk":[30],"ex":[3],"e.ind":[1],"code":["\n3\n"],"message":["\nYou have not yet entered all correct commands in chunk 3_d."]}
+,
+{"type":["check_ps"],"time":["2021-04-27 13:36:05"],"user":["Jana Russ"],"umph":[1619523365.8564],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:05"],"user":["Jana Russ"],"umph":[1619523365.8774],"ok":[false],"chunk":[30],"ex":[3],"e.ind":[1],"code":["\n3\n"],"message":["\nYou have not yet entered all correct commands in chunk 3_d."]}
+,
+{"type":["check_ps"],"time":["2021-04-27 13:36:35"],"user":["Jana Russ"],"umph":[1619523395.7178],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:35"],"user":["Jana Russ"],"umph":[1619523395.7387],"ok":[false],"chunk":[30],"ex":[3],"e.ind":[1],"code":["\n1\n"],"message":["\nYou have not yet entered all correct commands in chunk 3_d."]}
+,
+{"type":["check_ps"],"time":["2021-04-27 13:36:45"],"user":["Jana Russ"],"umph":[1619523405.1044],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:45"],"user":["Jana Russ"],"umph":[1619523405.1254],"ok":[false],"chunk":[30],"ex":[3],"e.ind":[1],"code":["\n2\n"],"message":["\nYou have not yet entered all correct commands in chunk 3_d."]}
+,
+{"type":["check_ps"],"time":["2021-04-27 13:36:54"],"user":["Jana Russ"],"umph":[1619523414.444],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:54"],"user":["Jana Russ"],"umph":[1619523414.4674],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n4\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:54"],"user":["Jana Russ"],"umph":[1619523414.5521],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["pwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-04-27 13:36:54"],"user":["Jana Russ"],"umph":[1619523414.5751],"ok":[false],"chunk":[32],"ex":[4],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg1 in chunk 4_b."]}
+,
