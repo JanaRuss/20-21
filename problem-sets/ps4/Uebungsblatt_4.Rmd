@@ -464,7 +464,8 @@ b) Regressieren Sie das BIP pro Kopf `bip` auf den Kapitalstock pro Kopf `k`. Sp
 
 ```{r "4_b"}
 
-# enter your code here ...
+reg1 <- lm(bip ~ k ,data = pwt)
+summary(reg1)
 
 ```
 Was ist eine richtige Interpretation des Koeffizienten von `k`?
@@ -478,7 +479,7 @@ Was ist eine richtige Interpretation des Koeffizienten von `k`?
 Tippen Sie 1,2 oder 3
 ```{r "4_b_2"}
 
-# enter your code here ...
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -497,7 +498,8 @@ d) Generieren Sie fuer `pwt` mit `mutate` zwei neue Spalten `log_bip` und `log_k
 
 ```{r "4_d"}
 
-# enter your code here ...
+pwt <- pwt %>% mutate(log_bip = log(bip),
+               log_k = log(k))
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -513,7 +515,8 @@ e) Regressieren Sie nun `log_bip` auf `log_k`. Speichern Sie das Ergebnis in `re
 
 ```{r "4_e"}
 
-# enter your code here ...
+reg2 <- lm(log_bip ~ log_k, data = pwt)
+summary(reg2)
 
 ```
 
@@ -528,7 +531,7 @@ Was ist nun die korrekte Interpretation des Koeffizienten vor log_k?
 Schreiben Sie 1,2, oder 3.
 ```{r "4_e_2"}
 
-# enter your code here ...
+3
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
