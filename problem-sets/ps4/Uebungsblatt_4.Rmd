@@ -41,6 +41,7 @@ Bitte installieren Sie das Paket `stargazer`, falls Sie das bis jetzt noch nicht
 library(stargazer)
 library(readr)
 library(wooldridge)
+library(tidyverse)
 ```
 
 `stargazer` ermoeglicht eine ansprechende Darstellung von Tabellen, insbesondere in HTMP und Latex, was Sie spaeter fuer die Projekte benoetigen werden.
