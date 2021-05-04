@@ -1,0 +1,138 @@
+{"type":["init_ps"],"time":["2021-05-04 10:43:23"],"user":["Jana Russ"],"umph":[1620117803.9044],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:43:24"],"user":["Jana Russ"],"umph":[1620117804.6866],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(wooldridge)\ndata(wage1)\nhead(wage1)\nskim(wage1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:43:24"],"user":["Jana Russ"],"umph":[1620117804.7242],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\nreg1 <- lm(wage ~ educ, data = wage1)\nsummary(reg1)\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:43:24"],"user":["Jana Russ"],"umph":[1620117804.7521],"ok":[false],"chunk":[3],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_c."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 10:50:16"],"user":["Jana Russ"],"umph":[1620118216.1773],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:50:16"],"user":["Jana Russ"],"umph":[1620118216.2042],"ok":[false],"chunk":[3],"ex":[1],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_c."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 10:50:31"],"user":["Jana Russ"],"umph":[1620118231.6007],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:50:31"],"user":["Jana Russ"],"umph":[1620118231.6237],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 10:50:31"],"user":["Jana Russ"],"umph":[1620118231.6596],"ok":[false],"chunk":[4],"ex":[1],"e.ind":[0],"code":["wage1 %>%\n mutate(gender = ifelse(female==1,\".PH_._\",\".PH_._\")) %>%\n group_by(gender) %>%\n summarize(mean(.PH_._))\n\n# enter your code here ...\n"],"message":["evaluation error in \n  wage1 %>% mutate(gender = ifelse(female == 1, \"___\", \"___\")) %>% group_by(gender) %>% summarize(mean(___))\n  Error: Problem with `summarise()` input `..1`.\nx Objekt '___' nicht gefunden\ni Input `..1` is `mean(___)`.\ni The error occurred in group 1: gender = \"___\".\n"]}
+,
+{"type":["hint"],"time":["2021-05-04 11:06:34"],"user":["Jana Russ"],"umph":[1620119194.3586],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:08:10"],"user":["Jana Russ"],"umph":[1620119290.3687],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:08:10"],"user":["Jana Russ"],"umph":[1620119290.4146],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["wage1 %>%\n mutate(gender = ifelse(female==1,\"female\",\"male\")) %>%\n group_by(gender) %>%\n summarize(mean(educ))\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:08:10"],"user":["Jana Russ"],"umph":[1620119290.5464],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"maennlich\"]\n\nx -> y [label=\"+\"];\nw -> x [label=\"+\"];\nw -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:08:10"],"user":["Jana Russ"],"umph":[1620119290.5653],"ok":[false],"chunk":[6],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_e_3."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:11:09"],"user":["Jana Russ"],"umph":[1620119469.8728],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:11:09"],"user":["Jana Russ"],"umph":[1620119469.9007],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n1\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:11:09"],"user":["Jana Russ"],"umph":[1620119469.9347],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["reg2 <- lm(wage ~ educ + female, data=wage1)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:11:10"],"user":["Jana Russ"],"umph":[1620119470.0936],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\nx -> y [label=\"+\"];\nw -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:11:10"],"user":["Jana Russ"],"umph":[1620119470.1115],"ok":[false],"chunk":[9],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_2."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:11:55"],"user":["Jana Russ"],"umph":[1620119515.91],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:11:55"],"user":["Jana Russ"],"umph":[1620119515.9359],"ok":[false],"chunk":[9],"ex":[1],"e.ind":[1],"code":["\n\"verzerrt\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_2."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:12:12"],"user":["Jana Russ"],"umph":[1620119532.352],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:12:12"],"user":["Jana Russ"],"umph":[1620119532.3769],"ok":[true],"chunk":[9],"ex":[1],"e.ind":[0],"code":["\n\"unverzerrt\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:12:12"],"user":["Jana Russ"],"umph":[1620119532.5851],"ok":[true],"chunk":[10],"ex":[1],"e.ind":[0],"code":["########################################\n# Beispiel 1: w hat nur Einfluss auf y\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1)\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nlibrary(stargazer)\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:12:12"],"user":["Jana Russ"],"umph":[1620119532.7517],"ok":[true],"chunk":[11],"ex":[1],"e.ind":[0],"code":["########################################\n# Beispiel 2: w hat Einfluss auf y und x\n########################################\nset.seed(123)\nn <- 10000\nbeta1 <- 2 # wahrer kausaler effekt\nw <- rnorm(n,0,1)\nx <- rnorm(n,0,1) + w\ny <- beta1*x + w + rnorm(n,0,1)\n\n# Regression mit w als Kontrollvariable\nreg1 <- lm(y~x+w)\n# Regression ohne w als Kontrollvariable\nreg2 <- lm(y~x)\n# Zeige Ergbenisse nebeneinander\nstargazer(reg1, reg2, type=\"text\", digits=3, keep.stat=c(\"n\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:12:12"],"user":["Jana Russ"],"umph":[1620119532.7657],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:12:34"],"user":["Jana Russ"],"umph":[1620119554.8439],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:12:34"],"user":["Jana Russ"],"umph":[1620119554.8739],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:13:09"],"user":["Jana Russ"],"umph":[1620119589.2778],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:13:09"],"user":["Jana Russ"],"umph":[1620119589.3048],"ok":[false],"chunk":[12],"ex":[1],"e.ind":[1],"code":["\n\"ja\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_5."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:13:19"],"user":["Jana Russ"],"umph":[1620119599.7749],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:13:19"],"user":["Jana Russ"],"umph":[1620119599.8028],"ok":[true],"chunk":[12],"ex":[1],"e.ind":[0],"code":["\n\"nein\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:13:19"],"user":["Jana Russ"],"umph":[1620119599.8307],"ok":[true],"chunk":[13],"ex":[1],"e.ind":[0],"code":["confint(lm(y~x))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:13:19"],"user":["Jana Russ"],"umph":[1620119599.8637],"ok":[false],"chunk":[14],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_g_7."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:14:33"],"user":["Jana Russ"],"umph":[1620119673.9808],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.0377],"ok":[true],"chunk":[14],"ex":[1],"e.ind":[0],"code":["\nconfint(lm(y~x),level = 0.99)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.0596],"ok":[true],"chunk":[15],"ex":[1],"e.ind":[0],"code":["cor(wage1$exper,wage1$wage)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.0786],"ok":[true],"chunk":[16],"ex":[1],"e.ind":[0],"code":["cor(wage1$exper,wage1$educ)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.2419],"ok":[true],"chunk":[17],"ex":[1],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"Ausbildungsjahre x\"]\ny [label=\"Stundenlohn y\"]\nw [label=\"Arbeitserfahrung\"]\n\nx -> y [label=\"+\"];\nx -> w [label=\"-\"];\nw -> y [label=\"+\"];\n}')\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.2619],"ok":[true],"chunk":[18],"ex":[1],"e.ind":[0],"code":["coef(lm(wage~educ, data=wage1))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:14:34"],"user":["Jana Russ"],"umph":[1620119674.2968],"ok":[false],"chunk":[19],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_5."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:15:11"],"user":["Jana Russ"],"umph":[1620119711.9731],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:15:11"],"user":["Jana Russ"],"umph":[1620119711.9991],"ok":[false],"chunk":[19],"ex":[1],"e.ind":[1],"code":["\n\"kleiner\"\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_5."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:15:26"],"user":["Jana Russ"],"umph":[1620119726.1245],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:15:26"],"user":["Jana Russ"],"umph":[1620119726.1613],"ok":[true],"chunk":[19],"ex":[1],"e.ind":[0],"code":["\n\"groesser\"\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:15:26"],"user":["Jana Russ"],"umph":[1620119726.1773],"ok":[true],"chunk":[20],"ex":[1],"e.ind":[0],"code":["coef(lm(wage~educ+exper, data=wage1))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:15:26"],"user":["Jana Russ"],"umph":[1620119726.1982],"ok":[false],"chunk":[21],"ex":[1],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_7."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:27:51"],"user":["Jana Russ"],"umph":[1620120471.3931],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:27:51"],"user":["Jana Russ"],"umph":[1620120471.417],"ok":[false],"chunk":[21],"ex":[1],"e.ind":[1],"code":["\n0.64\n"],"message":["\nYou have not yet entered all correct commands in chunk 1_h_7."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:28:00"],"user":["Jana Russ"],"umph":[1620120480.9684],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:28:00"],"user":["Jana Russ"],"umph":[1620120480.9944],"ok":[true],"chunk":[21],"ex":[1],"e.ind":[0],"code":["\n0.54\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:28:01"],"user":["Jana Russ"],"umph":[1620120481.0353],"ok":[false],"chunk":[22],"ex":[1],"e.ind":[3],"code":["reg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\n\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to reg3 in chunk 1_i."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:50:28"],"user":["Jana Russ"],"umph":[1620121828.1427],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:50:28"],"user":["Jana Russ"],"umph":[1620121828.1796],"ok":[false],"chunk":[22],"ex":[1],"e.ind":[3],"code":["reg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\n\nreg3 <- lm(wage ~ female + nonwhite + exper, data = wage1)\n"],"message":["\nYou have not made a correct assignment to reg3 in chunk 1_i."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:51:06"],"user":["Jana Russ"],"umph":[1620121866.6541],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:51:06"],"user":["Jana Russ"],"umph":[1620121866.7059],"ok":[false],"chunk":[22],"ex":[1],"e.ind":[3],"code":["reg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\n\nreg3 <- lm(wage ~ female + nonwhite + exper,data=wage1)\n"],"message":["\nYou have not made a correct assignment to reg3 in chunk 1_i."]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:52:12"],"user":["Jana Russ"],"umph":[1620121932.8209],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:52:12"],"user":["Jana Russ"],"umph":[1620121932.8628],"ok":[true],"chunk":[22],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(wage ~ educ, data = wage1)\nreg2 <- lm(wage ~ educ + female + nonwhite, data=wage1)\n\nreg3 <- lm(wage ~ educ + female + nonwhite + exper,data=wage1)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:52:13"],"user":["Jana Russ"],"umph":[1620121933.1301],"ok":[true],"chunk":[23],"ex":[1],"e.ind":[0],"code":["stargazer( reg1, reg2, reg3 ,type = \"text\",  digits=2, omit.stat = c(\"f\",\"ser\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:52:13"],"user":["Jana Russ"],"umph":[1620121933.159],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[1],"code":["\n# enter your code here ...\n"],"message":["\nYou have not yet made an assignment to n_train in chunk 2_a_2."]}
+,
+{"type":["hint"],"time":["2021-05-04 11:53:44"],"user":["Jana Russ"],"umph":[1620122024.5178],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2021-05-04 11:58:09"],"user":["Jana Russ"],"umph":[1620122289.3612],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 11:58:09"],"user":["Jana Russ"],"umph":[1620122289.3892],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[1],"code":["\nn_train <- jtrain3 %>% filter(train == \"1\") %>% count()\n\nn_train\n"],"message":["\nYou have not made a correct assignment to n_train in chunk 2_a_2."]}
+,
+{"type":["hint"],"time":["2021-05-04 11:58:20"],"user":["Jana Russ"],"umph":[1620122300.4596],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2021-05-04 12:03:59"],"user":["Jana Russ"],"umph":[1620122639.1951],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 12:03:59"],"user":["Jana Russ"],"umph":[1620122639.2201],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[1],"code":["\nn_train <- jtrain3 %>% filter(train == \"1\") %>% sum()\n\nn_train\n"],"message":["\nYou have not made a correct assignment to n_train in chunk 2_a_2."]}
+,
+{"type":["hint"],"time":["2021-05-04 12:04:07"],"user":["Jana Russ"],"umph":[1620122647.9847],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[1]}
+,
+{"type":["check_ps"],"time":["2021-05-04 12:04:48"],"user":["Jana Russ"],"umph":[1620122688.2289],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2021-05-04 12:04:48"],"user":["Jana Russ"],"umph":[1620122688.2608],"ok":[false],"chunk":[25],"ex":[2],"e.ind":[1],"code":["\nn_train <- jtrain3 %>% filter(train == \"1\") %>% count()\n\nn_train\n"],"message":["\nYou have not made a correct assignment to n_train in chunk 2_a_2."]}
+,
