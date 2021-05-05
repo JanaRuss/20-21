@@ -41,6 +41,9 @@ Bitte installieren Sie die Pakete `stargazer`, `wooldridge`, `DiagrammeR` und `s
 a) Im wooldridge-Pakte finden Sie den Datensatz `wage1`, welcher US Daten zu 526 Arbeitnehmern, deren Loehne, Ausbildung und Herkunft aus dem Jahr 1976 enhaelt. Lassen Sie folgenden Code laufen um die Daten in einer Variablen zu speichern und einen Ueberblick zu erhalten:
 ```{r "1_a"}
 library(wooldridge)
+library(skimr)
+library(DiagrammeR)
+library(stargazer)
 data(wage1)
 head(wage1)
 skim(wage1)
@@ -364,7 +367,7 @@ Als kleine Voruebung, speichern Sie in der Variablen `n_train` die Zahl der Arbe
 
 ```{r "2_a_2"}
 
-n_train <- jtrain3 %>% filter(train == "1") %>% count()
+n_train <- sum(jtrain2$train)
 
 n_train
 
@@ -381,7 +384,7 @@ Geben Sie hier die Ziffer Ihrer Antwort ein und fuehren Sie die Codezeile aus:
 
 ```{r "2_a_3"}
 
-1
+2
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -393,10 +396,8 @@ b) Fuehren Sie eine lineare Regression (mittels OLS) mit x=`train` und y=`unem78
 
 ```{r "2_b"}
 
-# enter your code here ...
-
-
-# enter your code here ...
+reg1 <- lm(unem78 ~ train, data = jtrain3)
+summary(reg1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -407,9 +408,9 @@ Bedeutet dies, dass mehr Weiterbildung zu mehr Arbeitslosigkeit fuehrt?
 
 c) Ergaenzen Sie folgenden Code um die durchschnittliche Teilnahme an Weiterbildungsprogrammen 1977 und die Arbeitslosenquote 1978 zwischen den Personen zu vergleichen, die 1975 arbeitslos/nicht arbeitslos waren.
 ```{r "2_c"}
-___ %>% 
- group_by(___) %>%
- summarize(mean(train), mean(___))
+jtrain3 %>% 
+ group_by(unem75) %>%
+ summarize(mean(train), mean(unem78))
 
 # enter your code here ...
 
@@ -446,7 +447,7 @@ Schreiben Sie "kleiner" oder "groesser".
 
 ```{r "2_d_2"}
 
-# enter your code here ...
+"kleiner"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -454,8 +455,8 @@ Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
 Regressieren Sie nun `unem78` auf `train` und `unem75`. Speichern Sie das Ergebnis in der Variablen `reg2`. Zeigen Sie danach das Ergebnis von `reg1` und `reg2` nebeneinander mit `stargazer`.
 
 ```{r "2_d_3"}
-
-# enter your code here ...
+reg2 <- lm(unem78~ train + unem75, data = jtrain3)
+stargazer(reg2)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -469,7 +470,8 @@ Erstellen Sie zwei Datensaetze aus `jtrain3`:
 
 ```{r "2_e"}
 
-# enter your code here ...
+jtrain3_la <- filter(jtrain3, unem75 == 1)
+jtrain3_ka <- filter(jtrain3, unem75 != 1)
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
@@ -478,7 +480,8 @@ Lassen Sie nun die einfache Regression von `unem78` auf `train` (ohne `unem75`) 
 
 ```{r "2_e_2"}
 
-# enter your code here ...
+reg_la <- lm(unem78 ~ train, data = jtrain3_la)
+reg_ka <- lm(unem78 ~ train, data = jtrain3_ka)
 
 stargazer(reg1, reg2, reg_la, reg_ka,type="text",keep.stat=c("n"), column.labels = c("alle","alle", "Lang Alo","Kurz Alo") )
 ```
@@ -531,7 +534,7 @@ Meinen Sie dieses Design loest die meisten relevanten Selektionsproblem und erla
 
 ```{r "2_f_2"}
 
-# enter your code here ...
+"nein"
 
 ```
 Hier waere ein guter Zeitpunkt das Addin 'Check Problemset' auszufuehren!
